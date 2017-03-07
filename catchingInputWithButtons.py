@@ -24,9 +24,7 @@ statusBar = Label(root, text="", bd=1, relief=GROOVE, anchor=CENTER)
 statusBar.pack(side=BOTTOM, fill=X)
 
 
-button = Button(root, text='Click me')
-button.config( command = callbackText )
-button.pack()
+
 
 login = Toplevel(root)
 login.wm_title("Toplevel test")
@@ -43,7 +41,6 @@ top1Button1 = ttk.Button(login, text="Cancel", command=closeToplevel).grid(row=3
 top1Button2 = ttk.Button(login, text="Login").grid(row=3, column=2)
 
 
-
 login.attributes('-topmost', True) #brings toplevel window to the top
 login.focus_force()  #gives focus to toplevel window
 login.grab_set() # disables main window until toplevel closed or given back by .grab_release()
@@ -57,6 +54,14 @@ login.grab_set() # disables main window until toplevel closed or given back by .
 # hei = top1.winfo_height()
 # top1.geometry("%dx%d+%d+%d" % (wid, hei, x + 30, y + 30))
 #top1.geometry("150x200+%d+%d" % (x+30, y+30))
+
+
+leftFrame = Frame(root, width=200, background="red").pack(expand=False, side=LEFT, fill=Y)
+rightFrame = Frame(root, background="white").pack(expand=True, side=RIGHT, fill=BOTH)
+
+button = Button(leftFrame, text='Click me')
+button.config( command = callbackText )
+button.pack()
 
 
 #hook main window to the main event handler loop
